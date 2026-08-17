@@ -1,0 +1,67 @@
+      <h1>Contribute to the web map</h1>
+      <h2>Adding points of interest (POI) to the webmap</h2>
+      <p>Points of interests can be added in game using signs with keywords.</p>
+      <h3>Adding a "base" marker : &lt;AM:BASE&gt;</h3>
+      <p>Place a sign in the chunk that is on the surface, it doesn't need to be visible in game. Type ".debug chunk"
+        ingame to show the chunk border. On the first line
+        enter &lt;AM:BASE&gt; and use the next 3 lines to add a label to the marker. The lines will be concatenated and
+        separated with single space characters. this markers is intended for major POIs, visible when zoomed far out on
+        the map. You don't need more than one for your base. Example:</p>
+      <pre>&lt;AM:BASE&gt;
+Josh, Joel,
+Jesse &amp;
+Cordelia</pre>
+      <h3>Adding a "misc" marker : &lt;AM:MISC&gt;</h3>
+      <p>Place a sign near the minor POI, on the first line enter &lt;AM:MISC&gt; and use the next 3 lines to add a
+        label to the marker. The lines will be concatenated and separated with single space characters. These markers
+        are visible when the map is zoomed in. They are used to label minor points of interest such as individual
+        landmarks in a player's base, roads, lakes, resources gathering areas such as salt domes, etc. Examples:</p>
+<pre>&lt;AM:MISC&gt;
+Public
+salt dome
+Free salt!</pre>
+      <pre>&lt;AM:MISC&gt;
+Drakker's
+wonderful
+pie oven!</pre>
+      <h3>Tagging translocators : &lt;AM:TL&gt;</h3>
+      <p>To tag a translocators a sign must be placed within the same chunk as the translocator. Type ".debug chunk"
+        ingame to show the chunk border. You can
+        hide the sign in the ceiling or the floor if you want. On the first line enter &lt;AM:TL&gt; then on the second
+        line enter a tag name, it can be anything. It will be used to classify translocators on the map. For example,
+        the Official Public Test Server has an area called the temporal hub, all the transocators in this area are
+        tagged with "HUB" and they are shown on the map in a different color. On the third and fourth lines enter a
+        label for the translocator. This label will apear in the map object inspector when players hover over the
+        translocator on the map with their mouse cursor.</p>
+      <p>Note : coloring translocators on the map is left to the discretion of the server admins and the web map
+        managers, there's no guarantee that translocators you tag will get a unique color.</p>
+<pre>&lt;AM:TL&gt;
+SPAWN
+Spawn - 
+Main Town</pre>
+      <h3>Tagging Elk traversable translocators : &lt;AM:TLE&gt;</h3>
+      <p>Some translocators can be reached by Elks (for example through an Elk friendly tunnel or a surface-to-surface
+        connection). To flag a translocator as Elk traversable, place a sign in the same chunk just like a regular
+        &lt;AM:TL&gt; tag, but enter &lt;AM:TLE&gt; on the first line instead. The rest of the sign format stays the same:
+        the second line is the tag name and the remaining lines are the label. <strong>Both ends of the translocator
+        must be tagged &lt;AM:TLE&gt;</strong> for it to count as Elk traversable, since an Elk has to be able to enter
+        from either side. Elk traversable translocators are shown in their own color on the map. If two nearby
+        translocators are both tagged &lt;AM:TLE&gt;, you can assume there is a connection an Elk can traverse between
+        them.</p>
+<pre>&lt;AM:TLE&gt;
+HUB
+North Pass -
+Elk Tunnel</pre>
+      <h3>Adding a "custom" marker : &lt;AM:CUSTOM&gt;</h3>
+      <p>If enabled by the server administrator, you can create custom tagged markers. Place a sign and on the first line enter 
+         &lt;AM:YOUR_TAG&gt; where YOUR_TAG is any custom tag name you want to use. Use the next lines to add a label to the marker. 
+         The lines will be concatenated and separated with single space characters. These markers can be used to create custom 
+         categories of points of interest that can be styled differently on the map. Example:</p>
+<pre>&lt;AM:SHOP&gt;
+Bob's
+Trading
+Post</pre>
+      <h2>Modifying existing POIs</h2>
+      <p>Points of interests can be modified in game by altering the text on their signs or moving them or removing them.
+        It may take some time before
+        the changes are reflected on the web map depending on how often we update it.</p>
